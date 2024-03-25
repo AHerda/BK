@@ -1,7 +1,7 @@
 # Bezpieczeństwo komputerowe
 
 Semestr 6<br>
-Repozytorium zawierające programy, notatki i sprawozdania na kurs BK
+Repozytorium zawierające programy, notatki i sprawozdania na kurs BK.<br>
 Notatki i sprawozdania są pisane w markdownie w programie obsidian.
 
 ## Autor
