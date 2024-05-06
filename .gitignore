@@ -1,3 +1,6 @@
 .obsidian/
 .vscode/
 *zip
+
+target/
+*.lock

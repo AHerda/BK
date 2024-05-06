@@ -34,11 +34,12 @@ uint64_t modular_inverse(uint64_t e, uint64_t k) {
 }
 
 bool is_prime(uint64_t number){
-    if(number <= 1)
+    if (number <= 1 || number % 2 == 0 || number % 3 == 0)
         return false;
-
-    for(uint64_t i = 2; i * i <= number; i++)
-        if(number % i == 0)
+    if (number <= 3)
+        return true;
+    for(uint64_t i = 5; i * i <= number; i += 6)
+        if(number % i == 0 || number % (i + 2) == 0)
             return false;
 
     return true;
