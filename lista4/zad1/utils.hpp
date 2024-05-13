@@ -9,11 +9,11 @@
 #include <random>
 #include <cstdint>
 
-uint64_t gcd_extended(uint64_t a, uint64_t b, uint64_t& x, uint64_t& y);
-uint64_t modular_inverse(uint64_t e, uint64_t k);
-bool is_prime(uint64_t number);
-void generate_RSA(uint64_t p, uint64_t q, uint64_t &e, uint64_t &d);
-uint64_t mod_pow(uint64_t base, uint64_t exp, uint64_t mod);
-std::pair<uint64_t, uint64_t> calculate_private(uint64_t n, uint64_t e, uint64_t d);
+int64_t gcd_extended(int64_t a, int64_t b, int64_t& x, int64_t& y);
+int64_t modular_inverse(int64_t e, int64_t k);
+bool is_prime(int64_t number);
+void generate_RSA(int64_t p, int64_t q, int64_t &e, int64_t &d);
+int64_t mod_pow(int64_t base, int64_t exp, int64_t mod);
+std::pair<int64_t, int64_t> calculate_private(int64_t n, int64_t e, int64_t d);
 
 #endif

@@ -5,15 +5,15 @@
 
 int main(){
     int64_t a, b;
-    uint64_t p, q;
-    uint64_t dA, eA, dB, eB, n;
-    std::pair<uint64_t, uint64_t> skA, pkA, skB, pkB;
-    std::pair<uint64_t, uint64_t> private_result;
+    int64_t p, q;
+    int64_t dA, eA, dB, eB, n;
+    std::pair<int64_t, int64_t> skA, pkA, skB, pkB;
+    std::pair<int64_t, int64_t> private_result;
 
     std::cout << "Enter two positive prime numbers p and q:" << std::endl;
     std::cin >> a >> b;
-    p = (uint64_t) a;
-    q = (uint64_t) b;
+    p = (int64_t) a;
+    q = (int64_t) b;
 
     std::cout << a << " " << b << std::endl;
     std::cout << p << " " << q << std::endl;

@@ -3,15 +3,15 @@
 std::random_device rd;
 std::mt19937 gen(rd());
 
-uint64_t gcd_extended(uint64_t a, uint64_t b, uint64_t& x, uint64_t& y) {
+int64_t gcd_extended(int64_t a, int64_t b, int64_t& x, int64_t& y) {
     if (a == 0) {
         x = 0;
         y = 1;
         return b;
     }
 
-    uint64_t x1, y1;
-    uint64_t gcd = gcd_extended(b % a, a, x1, y1);
+    int64_t x1, y1;
+    int64_t gcd = gcd_extended(b % a, a, x1, y1);
 
     x = y1 - (b / a) * x1;
     y = x1;
@@ -19,36 +19,36 @@ uint64_t gcd_extended(uint64_t a, uint64_t b, uint64_t& x, uint64_t& y) {
     return gcd;
 }
 
-uint64_t modular_inverse(uint64_t e, uint64_t k) {
-    uint64_t x, y;
-    uint64_t gcd = gcd_extended(e, k, x, y);
+int64_t modular_inverse(int64_t e, int64_t k) {
+    int64_t x, y;
+    int64_t gcd = gcd_extended(e, k, x, y);
 
     if (gcd != 1) {
         // Modular inverse does not exist
         return -1;
     } else {
         // Ensure d is positive
-        uint64_t d = (x % k + k) % k;
+        int64_t d = (x % k + k) % k;
         return d;
     }
 }
 
-bool is_prime(uint64_t number){
+bool is_prime(int64_t number){
     if (number <= 1 || number % 2 == 0 || number % 3 == 0)
         return false;
     if (number <= 3)
         return true;
-    for(uint64_t i = 5; i * i <= number; i += 6)
+    for(int64_t i = 5; i * i <= number; i += 6)
         if(number % i == 0 || number % (i + 2) == 0)
             return false;
 
     return true;
 }
 
-void generate_RSA(uint64_t p, uint64_t q, uint64_t &e, uint64_t &d) {
-    std::vector<uint64_t> possible_e;
-    uint64_t random_index;
-    uint64_t phi = (p - 1) * (q - 1);
+void generate_RSA(int64_t p, int64_t q, int64_t &e, int64_t &d) {
+    std::vector<int64_t> possible_e;
+    int64_t random_index;
+    int64_t phi = (p - 1) * (q - 1);
 
     std::cout << "\tCalculating e" << std::endl;
     // Wybór liczby e, która jest względnie pierwsza z phi
@@ -68,8 +68,8 @@ void generate_RSA(uint64_t p, uint64_t q, uint64_t &e, uint64_t &d) {
     d = modular_inverse(e, phi);
 }
 
-uint64_t mod_pow(uint64_t base, uint64_t exp, uint64_t mod) {
-    uint64_t result = 1;
+int64_t mod_pow(int64_t base, int64_t exp, int64_t mod) {
+    int64_t result = 1;
     base %= mod;
     while (exp > 0) {
         if (exp & 1) {
@@ -81,12 +81,12 @@ uint64_t mod_pow(uint64_t base, uint64_t exp, uint64_t mod) {
     return result;
 }
 
-std::pair<uint64_t, uint64_t> calculate_private(uint64_t n, uint64_t e, uint64_t d){
-    uint64_t phi = d * e - 1;
-    uint64_t t = phi;
-    int a = 2;
-    uint64_t k, x, p, q;
-    std::pair<int, int> result;
+std::pair<int64_t, int64_t> calculate_private(int64_t n, int64_t e, int64_t d){
+    int64_t phi = d * e - 1;
+    int64_t t = phi;
+    int64_t a = 2;
+    int64_t k, x, p, q;
+    std::pair<int64_t, int64_t> result;
 
     while(t % 2 == 0){
         t = std::floor(t / 2);
