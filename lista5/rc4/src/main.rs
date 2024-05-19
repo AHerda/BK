@@ -14,8 +14,8 @@ fn main() {
 
     let mut encrypted_bytes_xor = Vec::new();
     for i in 0..encrypted_bytes.len().min(encrypted_bytes2.len()) {
-		encrypted_bytes_xor.push(encrypted_bytes[i] ^ encrypted_bytes2[i]);
-	}
+        encrypted_bytes_xor.push(encrypted_bytes[i] ^ encrypted_bytes2[i]);
+    }
     let decrypted_text = zad1::decrypt(&key, &encrypted_text);
 
     println!("Text: {}", text);
