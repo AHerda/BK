@@ -74,3 +74,16 @@ fn test_check_not_same_key_2() {
 
 	assert!(!zad2::check_same_key(&encrypted_text1, &encrypted_text2));
 }
+
+#[test]
+fn test_check_not_same_key_with_same_msg() {
+	let text1 = String::from("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor magna at finibus porttitor. Duis blandit, justo quis tempus dignissim, lacus sem tempor mi, eu consectetur eros lectus id dolor.");
+    let text2 = String::from("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor magna at finibus porttitor. Duis blandit, justo quis tempus dignissim, lacus sem tempor mi, eu consectetur eros lectus id dolor.");
+    let key = String::from("Key");
+	let key2 = String::from("Key2");
+
+    let encrypted_text1 = zad1::encrypt(&key, &text1);
+    let encrypted_text2 = zad1::encrypt(&key2, &text2);
+
+	assert!(!zad2::check_same_key(&encrypted_text1, &encrypted_text2));
+}
