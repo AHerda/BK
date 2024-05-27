@@ -1,4 +1,4 @@
-use rc4::{zad1, utils::*};
+use rc4::{utils::*, zad1};
 
 fn main() {
     let text = String::from("Hello, world!  ajkskjdhASHDASJHaksjhdkasasdaskgfhsdffsadfgshdjkASJDANSNBNgtfdrsahjyjngfftr7854nmdASGGHAJSJAStg hba3we4ry 56ok789o6wdc hu;ol'hk36w4rgv  dgfdgfasffgfg");

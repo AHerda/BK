@@ -9,7 +9,12 @@ fn test_check_same_key_0() {
     let encrypted_text1 = zad1::encrypt(&key, &text1);
     let encrypted_text2 = zad1::encrypt(&key, &text2);
 
-    assert!(zad2::check_same_key(&encrypted_text1, &encrypted_text2));
+    assert!(zad2::check_same_key_with_plain_text(
+        &text1,
+        &encrypted_text1,
+        &text2,
+        &encrypted_text2
+    ));
 }
 
 #[test]
@@ -23,7 +28,12 @@ fn test_check_same_key_1() {
     let encrypted_text1 = zad1::encrypt(&key, &text1);
     let encrypted_text2 = zad1::encrypt(&key, &text2);
 
-    assert!(zad2::check_same_key(&encrypted_text1, &encrypted_text2));
+    assert!(zad2::check_same_key_with_plain_text(
+        &text1,
+        &encrypted_text1,
+        &text2,
+        &encrypted_text2
+    ));
 }
 
 #[test]
@@ -35,7 +45,12 @@ fn test_check_same_key_2() {
     let encrypted_text1 = zad1::encrypt(&key, &text1);
     let encrypted_text2 = zad1::encrypt(&key, &text2);
 
-    assert!(zad2::check_same_key(&encrypted_text1, &encrypted_text2));
+    assert!(zad2::check_same_key_with_plain_text(
+        &text1,
+        &encrypted_text1,
+        &text2,
+        &encrypted_text2
+    ));
 }
 
 #[test]
@@ -48,7 +63,12 @@ fn test_check_not_same_key_0() {
     let encrypted_text1 = zad1::encrypt(&key, &text1);
     let encrypted_text2 = zad1::encrypt(&key2, &text2);
 
-    assert!(!zad2::check_same_key(&encrypted_text1, &encrypted_text2));
+    assert!(!zad2::check_same_key_with_plain_text(
+        &text1,
+        &encrypted_text1,
+        &text2,
+        &encrypted_text2
+    ));
 }
 
 #[test]
@@ -63,7 +83,12 @@ fn test_check_not_same_key_1() {
     let encrypted_text1 = zad1::encrypt(&key, &text1);
     let encrypted_text2 = zad1::encrypt(&key2, &text2);
 
-    assert!(!zad2::check_same_key(&encrypted_text1, &encrypted_text2));
+    assert!(!zad2::check_same_key_with_plain_text(
+        &text1,
+        &encrypted_text1,
+        &text2,
+        &encrypted_text2
+    ));
 }
 
 #[test]
@@ -76,7 +101,12 @@ fn test_check_not_same_key_2() {
     let encrypted_text1 = zad1::encrypt(&key, &text1);
     let encrypted_text2 = zad1::encrypt(&key2, &text2);
 
-    assert!(!zad2::check_same_key(&encrypted_text1, &encrypted_text2));
+    assert!(!zad2::check_same_key_with_plain_text(
+        &text1,
+        &encrypted_text1,
+        &text2,
+        &encrypted_text2
+    ));
 }
 
 #[test]
@@ -89,5 +119,10 @@ fn test_check_not_same_key_with_same_msg() {
     let encrypted_text1 = zad1::encrypt(&key, &text1);
     let encrypted_text2 = zad1::encrypt(&key2, &text2);
 
-    assert!(!zad2::check_same_key(&encrypted_text1, &encrypted_text2));
+    assert!(!zad2::check_same_key_with_plain_text(
+        &text1,
+        &encrypted_text1,
+        &text2,
+        &encrypted_text2
+    ));
 }

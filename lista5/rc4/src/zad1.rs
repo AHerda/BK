@@ -33,8 +33,7 @@ fn rc4(key: &String, text: &[u8]) -> Vec<u8> {
     let mut s = ksa(key.as_bytes());
     let keystream = prga(&mut s, text.len());
 
-    text
-        .iter()
+    text.iter()
         .zip(keystream)
         .map(|(a, b)| a ^ b)
         .collect::<Vec<u8>>()
@@ -51,7 +50,6 @@ pub fn decrypt(key: &String, encrypted_text: &String) -> String {
     let encrypted_text = bytes_from_hex_string(encrypted_text);
     String::from_utf8(rc4(key, &encrypted_text)).unwrap()
 }
-
 
 #[cfg(test)]
 mod tests {
